@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  app:
+    container_name: app
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+    - type: bind
+      source: ./frontend/app
+      target: /usr/src/app
+    #"react-app"の部分がプロジェクト名になる
+    command: sh -c "cd react-app && yarn start" 
+    ports:
+      - 3000:3000
+    stdin_open: true #標準入力をコンテナと紐付ける
+  
+  backend:
+    container_name: "backend"
+    volumes:
+      - type: bind
+        source: ./backend/app
+        target: /app
+    build: ./backend
+    ports:
+      - 8001:8001
