@@ -1,0 +1,21 @@
+.message {
+  display: block; /* 各メッセージを新しい行に表示 */
+  margin: 10px 0; /* 上下のマージン */
+  padding: 10px; /* 内側のパディング */
+  border-radius: 5px; /* 角を丸く */
+  max-width: 400px; /* 最大幅を設定 */
+  word-wrap: break-word; /* 長い単語を折り返し */
+  overflow-wrap: break-word; /* CSS3プロパティで折り返し */
+}
+
+.user-message {
+  background-color: #e0f7fa; /* ユーザーのメッセージの背景色 */
+  margin-left: auto; /* 右寄せ */
+  text-align: right; /* テキストを右揃え */
+}
+
+.ai-message {
+  background-color: #ffe0b2; /* 相手のメッセージの背景色 */
+  margin-right: auto; /* 左寄せ */
+  text-align: left; /* テキストを左揃え */
+}

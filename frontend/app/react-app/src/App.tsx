@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+// App.tsx
+import React, { useState } from 'react';
+import ChatContainer from './comportnents/ChatContainer';
+import ChatInput from './comportnents/ChatInput';
+//import UrlInput from './comportnents/UrlInput';
 import './App.css';
+import WavInput from './comportnents/WavInput';
+const App: React.FC = () => {
+  const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([]);
 
-function App() {
+  const handleMessageSend = (text: string, isUser: boolean) => {
+    setMessages(prevMessages => [...prevMessages, { text, isUser }]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edikdsfjha;slkfahjs;dfljakst <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>対話型アプリ</h2>
+      <ChatContainer messages={messages} />
+      <ChatInput onMessageSend={handleMessageSend} />
+      
+      <WavInput></WavInput>
     </div>
   );
-}
+};
 
 export default App;

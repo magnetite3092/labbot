@@ -1,0 +1,10 @@
+.App-header {
+    background-color: #282c34; /* 背景色 */
+    color: #000; /* テキスト色 */
+    padding: 0 20px; /* 左右のパディング */
+    height: 10%; /* 親要素の高さの10% */
+    display: flex; /* フレックスボックスを使用 */
+    align-items: center; /* 垂直方向に中央揃え */
+    justify-content: center; /* 水平方向に中央揃え */
+}
+    
