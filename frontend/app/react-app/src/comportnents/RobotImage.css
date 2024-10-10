@@ -1,0 +1,55 @@
+.robot-image-container {
+  text-align: center;
+  position: relative; /* ステータスバーをロボット画像の上に配置するため */
+  margin: 20px 0; /* 上下のマージンを追加 */
+}
+
+.robot-image {
+  width: 500px; /* 画像サイズを大きくする */
+  height: auto; /* 高さを自動調整 */
+  transition: transform 0.3s; /* ホバー時のアニメーション */
+}
+
+.learning {
+  animation: learning-animation 2s infinite; /* 勉強中のアニメーション */
+}
+
+@keyframes learning-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ステータスバーのスタイル */
+.status-bar {
+  position: absolute;
+  top: -10px; /* ロボットの画像の上に配置 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 10px; /* 高さを指定 */
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden; /* 蓄積エフェクトのため */
+}
+
+.experience-fill {
+  height: 100%;
+  background-color: #4caf50; /* 経験値の色 */
+  width: 0; /* 初期状態は0% */
+  transition: width 0.5s ease-in-out; /* アニメーション */
+}
+
+/* レベル表示のスタイル */
+.level-display {
+  font-size: 1.5rem; /* レベル表示のフォントサイズ */
+  margin-top: 10px; /* 上部マージンを追加 */
+}
+
+

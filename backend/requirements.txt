@@ -5,3 +5,8 @@ google-generativeai
 python-dotenv
 python-multipart
 openai-whisper
+beautifulsoup4
+sentence-transformers
+scikit-learn
+routers
+pillow

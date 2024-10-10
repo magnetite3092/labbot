@@ -1,0 +1,30 @@
+.cracker-container {
+  position: relative;
+  pointer-events: none; /* クリックを無効に */
+}
+
+.cracker {
+  font-size: 3rem; /* 大きさを調整 */
+  position: absolute;
+  top: -40px; /* ロボットの上に表示 */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: appear 1s forwards; /* アニメーション */
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.visible .cracker {
+  animation: appear 1s forwards;
+}
+

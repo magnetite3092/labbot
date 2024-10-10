@@ -1,18 +1,35 @@
 import React from 'react';
-import Message from './Message';
+import './ChatContainer.css'; // 新しいスタイルシートを追加
 
-interface ChatContainerProps {
-  messages: { text: string; isUser: boolean }[];
+interface Message {
+  text: string;
+  isUser: boolean;
 }
 
-const ChatContainer: React.FC<ChatContainerProps> = ({ messages }) => {
+interface ChatContainerProps {
+  messages: Message[];
+  highlightedIndices: number[];
+}
+
+const ChatContainer: React.FC<ChatContainerProps> = ({ messages, highlightedIndices }) => {
   return (
     <div className="chat-container">
       {messages.map((msg, index) => (
-        <Message key={index} text={msg.text} isUser={msg.isUser} />
+        <div key={index} className={`message ${msg.isUser ? 'user-message' : 'bot-message'}`}>
+          <div className="message-text">{msg.text}</div>
+        </div>
       ))}
     </div>
   );
 };
 
 export default ChatContainer;
+
+
+
+
+
+
+
+
+

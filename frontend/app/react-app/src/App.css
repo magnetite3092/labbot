@@ -1,15 +1,16 @@
-/* App.css */
-.App {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+.knowledge-section {
+  background-color: #f0f4f8;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-.chat-container {
-  max-height: 400px;
-  overflow-y: auto;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
+.knowledge-section h3 {
+  margin-bottom: 10px;
+  color: #333;
 }
+
+.image-upload-container {
+  margin-top: 10px;
+}
+

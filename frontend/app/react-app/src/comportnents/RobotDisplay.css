@@ -1,0 +1,21 @@
+/* src/RobotDisplay.css */
+.robot-image-container {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
+
+.robot-image {
+  width: 200px; /* 画像のサイズを調整 */
+  height: auto;
+}
+
+.learning-message {
+  position: absolute;
+  top: 50%; /* 画像の中央に配置 */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明の背景 */
+  padding: 10px;
+  border-radius: 5px;
+}

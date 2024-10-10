@@ -1,21 +1,30 @@
+/* App.css */
+.app {
+  padding: 20px;
+}
+
+/* ChatContainer.css */
+.chat-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Message.css */
 .message {
-  display: block; /* 各メッセージを新しい行に表示 */
-  margin: 10px 0; /* 上下のマージン */
-  padding: 10px; /* 内側のパディング */
-  border-radius: 5px; /* 角を丸く */
-  max-width: 400px; /* 最大幅を設定 */
-  word-wrap: break-word; /* 長い単語を折り返し */
-  overflow-wrap: break-word; /* CSS3プロパティで折り返し */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
 }
 
 .user-message {
-  background-color: #e0f7fa; /* ユーザーのメッセージの背景色 */
-  margin-left: auto; /* 右寄せ */
-  text-align: right; /* テキストを右揃え */
+  background-color: #cce5ff; /* ユーザーのメッセージの色 */
+  align-self: flex-end;
 }
 
-.ai-message {
-  background-color: #ffe0b2; /* 相手のメッセージの背景色 */
-  margin-right: auto; /* 左寄せ */
-  text-align: left; /* テキストを左揃え */
+.bot-message {
+  background-color: #e2e3e5; /* ボットのメッセージの色 */
+}
+
+.highlight {
+  border: 2px solid #007bff; /* ハイライトされたメッセージのスタイル */
 }

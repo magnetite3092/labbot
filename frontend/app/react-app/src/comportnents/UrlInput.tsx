@@ -1,57 +1,63 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
+import './UrlInput.css'; 
+import './FormStyle.css';
 
-type WavProps = {
-  wav?: (file: File) => void; // オプションのWAVファイルを処理するコールバック関数
-};
+interface UrlInputProps {
+  onUrlSend: (url: string) => void;
+}
 
-const WavInput: React.FC<WavProps> = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+const UrlInput: React.FC<UrlInputProps> = ({ onUrlSend }) => {
+  const [urlValue, setUrlValue] = useState("");
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      const file = event.target.files[0];
-      // ファイルの形式がWAVかどうか確認
-      if (file.type === "audio/wav") {
-        setSelectedFile(file);
-      } else {
-        alert("Please select a valid WAV file.");
-      }
-    }
+  const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUrlValue(e.target.value);
   };
 
-  const handleUpload = async () => {
-    if (selectedFile) {
-      // FormDataを作成し、ファイルを追加
-      const formData = new FormData();
-      formData.append("file", selectedFile);
+  const handleUrlSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (urlValue.trim()) {
+      onUrlSend(urlValue); 
 
       try {
-        // fetchでPOSTリクエストをlocalhost:8001に送信
-        const response = await fetch("http://localhost:8001/upload_wav/", {
-          method: "POST",
-          body: formData,
+        await axios.post('http://localhost:8001/knowledge/', {
+          url: urlValue,
         });
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log("File uploaded successfully:", data);
-        } else {
-          console.error("File upload failed:", response.statusText);
-        }
       } catch (error) {
-        console.error("Error uploading the file:", error);
+        console.error("エラーが発生しました:", error);
       }
-    } else {
-      alert("No file selected.");
+
+      setUrlValue(""); // 入力フィールドをクリア
     }
   };
 
   return (
-    <div>
-      <input type="file" accept="audio/wav" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload WAV</button>
+    <div className="knowledge-container">
+      <h3 className="knowledge-title">チャットボットに知識を与える！！</h3>
+      <form onSubmit={handleUrlSubmit} className="url-input-form">
+        <input
+          type="text"
+          value={urlValue}
+          onChange={handleUrlChange}
+          placeholder="学習させたいURLを入力..."
+          className="form-input url-input"
+        />
+        <button type="submit" className="submit-button knowledge-submit">
+          知識を送信
+        </button>
+      </form>
     </div>
   );
 };
 
-export default WavInput;
+export default UrlInput;
+
+
+
+
+
+
+
+
+
+
